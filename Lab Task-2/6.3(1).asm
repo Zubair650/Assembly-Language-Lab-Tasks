@@ -1,0 +1,60 @@
+
+.MODEL SMALL
+
+.STACK 1000H 
+
+.DATA
+ 
+E DW 0AH,0DH,"THE 19TH NUMBER: $" 
+
+
+.CODE
+
+MOV AX,@DATA
+
+MOV DS,AX  
+
+
+MOV CX,19
+
+MOV BX,100 
+ 
+
+MOV AH,9
+
+INT 21H
+
+MOV DX,E
+
+
+LOOPING: 
+
+
+SUB BX,5
+
+DEC CX  
+
+
+JNZ LOOPING   
+
+JZ PRINT
+
+
+PRINT: 
+
+
+MOV AH,2
+
+MOV DX,BX
+
+INT 21H
+
+
+MOV AH,4CH
+
+INT 21H 
+                      
+                      
+
+
+
